@@ -35,20 +35,11 @@ function run(args) {
         subtitle: url,
         windowIndex: w,
         tabIndex: t,
-        quicklookurl: url,
-        arg: `${w},${t},${url}`,
-        match: `${title} ${decodeURIComponent(matchUrl).replace(
-          /[^\w]/g,
-          " ",
-        )}`,
       };
     }
   }
 
-  let items = Object.keys(tabsMap).reduce((acc, url) => {
-    acc.push(tabsMap[url]);
-    return acc;
-  }, []);
+  let items = Object.values(tabsMap);
 
   return JSON.stringify({ items });
 }
